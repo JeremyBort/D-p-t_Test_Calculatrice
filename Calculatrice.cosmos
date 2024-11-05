@@ -1,0 +1,159 @@
+Auteur: jejeb
+Date: 27.10.2024
+Entreprise: MYCOMPUTER
+Description: Calculatrice
+
+Voici les ordres du programme Calculatrice  :
+
+	Créer une zone mémoire nommée #A avec la valeur 1.
+	Créer une zone mémoire nommée #B avec la valeur 1.
+	Créer une zone mémoire nommée #C avec la valeur 1.
+	Créer une zone mémoire nommée #D avec la valeur 1.
+	Créer une zone mémoire nommée #E avec le texte "oui".
+	Créer une zone mémoire nommée #memoire avec le texte "vide".
+	Créer une zone mémoire nommée #F avec la valeur 1.
+	Créer une zone mémoire nommée #binaire avec le texte "".
+	Créer une zone mémoire nommée #i avec la valeur 1.
+
+	Afficher "\nBienvenue dans la calculatrice.\n\n".
+
+	Répéter tant que #E == "oui"
+
+		Afficher "Entrez un nombre ".
+		Si #memoire != "vide" alors
+			Afficher "(saisissez 'mémoire' pour utiliser la valeur stockée dans la mémoire)".
+		?
+		Afficher ": ".
+		Récupérer la saisie et la stocker dans la zone mémoire #A.
+		Afficher "\n\n".
+		
+		Si #A == "mémoire" alors
+			#A = #memoire.
+		?
+ 
+		Afficher "Choisissez une opération entre les suivantes : 1. Addition, 2. Soustraction, 3.Multiplication, 4. Division, 5. Racine, 6. Puissance, 7. Pourcent, 8. Inversion, 9. Conversion binaire : ".
+		Récupérer la saisie et la stocker dans la zone mémoire #B.
+		Afficher "\n\n".
+
+		Répéter tant que #B < 0 et #B > 8
+			Afficher #B.
+			Afficher " n’est pas une valeur valide.\nVeuillez entrer un nombre entier entre 1 et 7 : ".
+			Récupérer la saisie et la stocker dans la zone mémoire #B.
+			Afficher "\n\n".
+		>>
+		Si #B != 7 et #B != 8 et #B != 9 alors
+			Afficher "Entrez encore un nombre ".
+			Si #memoire != "vide" alors
+				Afficher "(saisissez 'mémoire' pour utiliser la valeur stockée dans la mémoire)".
+			?
+			Afficher ": ".
+			Récupérer la saisie et la stocker dans la zone mémoire #C.
+			Afficher "\n\n".
+
+			Si #C == "mémoire" alors
+				#C = #memoire.
+			?
+ 
+		?
+		Afficher "Résultat : ".
+		Si #B != 9 alors
+			Afficher #A.
+		?
+		Si #B == 1 alors
+			#D = #A + #C.
+			Afficher " + ".
+			Afficher #C.
+			Afficher " = ".
+			Afficher #D.
+		?
+		Si #B == 2 alors
+			#D = #A - #C.
+			Afficher " - ".
+			Afficher #C.
+			Afficher " = ".
+			Afficher #D.
+		?
+		Si #B == 3 alors
+			#D = #A * #C.
+			Afficher " * ".
+			Afficher #C.
+			Afficher " = ".
+			Afficher #D.
+		?
+		Si #B == 4 alors
+			#D = #A / #C.
+			Afficher " : ".
+			Afficher #C.
+			Afficher " = ".
+			Afficher #D.
+		?
+		Si #B == 5 alors
+			#D = #A^(1 / #C).
+			Afficher " racine de #C".
+		?
+		Si #B == 6 alors
+			#D = #A^#C.
+			Afficher "^".
+			Afficher #C.
+			Afficher " = ".
+			Afficher #D.
+		?
+		Si #B == 7 alors
+			#D = #A / 100.
+			Afficher " / 100 = ".
+			Afficher #D.
+		?
+		Si #B == 8 alors
+			#D = 1 / #A.
+			Afficher "^-1 = ".
+			Afficher #D.
+		?
+		Si #B == 9 alors
+			Si #A == 0 alors
+				Afficher "0".
+			et sinon
+				Répéter tant que #A > 0
+					#D = #A % 2.
+					#A = (#A - #D) / 2.
+					#binaire = "#D#binaire".
+
+					Si #i == 4 alors
+						#i = 1.
+						#binaire = " #binaire".
+					et sinon
+						#i = #i + 1.
+					?
+				>>
+				#A = 0.
+				#i = 1.
+				Afficher #binaire.
+				#binaire = "".
+			?
+		?
+		Afficher "\n\n".
+
+		Si #B != 9 alors
+			Afficher "Voulez-vous stocker ce résultat dans la mémoire ?\n".
+			Récupérer la saisie et la stocker dans la zone mémoire #E.
+			Afficher "\n\n".
+			Répéter tant que #E != "oui" et #E != "non"
+				Afficher "Veuillez répondre en écrivant : oui ou non.\n".
+				Récupérer la saisie et la stocker dans la zone mémoire #E.
+				Afficher "\n\n".
+			>>
+			Si #E == "oui" alors
+				#memoire = #D.
+			?
+		?
+
+		Afficher "Voulez vous faire un autre calcul ?\n".
+		Récupérer la saisie et la stocker dans la zone mémoire #E.
+		Afficher "\n\n".
+
+		Répéter tant que #E != "oui" et #E != "non"
+			Afficher "Veuillez répondre en écrivant : oui ou non.\n".
+			Récupérer la saisie et la stocker dans la zone mémoire #E.
+			Afficher "\n\n".
+		>>
+	>>
+Fin de la transmission.
